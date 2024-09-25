@@ -45,9 +45,10 @@ public class TBaseAsyncProcessor<I> implements TAsyncProcessor, TProcessor {
   }
 
   public void process(final AsyncFrameBuffer fb) throws TException {
+    process(fb, fb.getInputProtocol(), fb.getOutputProtocol());
+  }
 
-    final TProtocol in = fb.getInputProtocol();
-    final TProtocol out = fb.getOutputProtocol();
+  void process(AsyncFrameBuffer fb, TProtocol in, TProtocol out) throws TException {
 
     // Find processing function
     final TMessage msg = in.readMessageBegin();

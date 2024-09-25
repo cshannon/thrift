@@ -152,7 +152,7 @@ public class TMultiplexedProcessor implements TProcessor {
    * readMessageBegin() and get a TMessage in exactly the standard format, without the service name
    * prepended to TMessage.name.
    */
-  private static class StoredMessageProtocol extends TProtocolDecorator {
+  static class StoredMessageProtocol extends TProtocolDecorator {
     TMessage messageBegin;
 
     public StoredMessageProtocol(TProtocol protocol, TMessage messageBegin) {
